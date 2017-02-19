@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
     <TITLE>客户列表</TITLE>
@@ -89,13 +90,29 @@
                                     <TD>手机</TD>
                                     <TD>操作</TD>
                                 </TR>
-                                <c:forEach items="${list }" var="customer">
+                                <s:iterator value="list" var="customer">
+                                    <TR style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
+                                        <TD><s:property value="#customer.custName"/></TD>
+                                        <TD><s:property value="#customer.custLevel"/></TD>
+                                        <TD><s:property value="#customer.custSource"/></TD>
+                                        <TD><s:property value="#customer.custIndustry"/></TD>
+                                        <TD><s:property value="#customer.custPhone"/></TD>
+                                        <TD><s:property value="#customer.custMobile"/></TD>
+                                        <TD>
+                                            <a href="${pageContext.request.contextPath }">修改</a>
+                                            &nbsp;&nbsp;
+                                            <a href="${pageContext.request.contextPath }">删除</a>
+                                        </TD>
+                                    </TR>
+
+                                </s:iterator>
+                                <%--<c:forEach items="${list }" var="customer">
                                     <TR
                                             style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
                                         <TD>${customer.custName }</TD>
                                         <TD>${customer.custLevel }</TD>
                                         <TD>${customer.custSource }</TD>
-                                       <%--<TD>${customer.linkmens.lkmName }</TD>--%>
+                                        <TD>${customer.custIndustry }</TD>
                                         <TD>${customer.custPhone }</TD>
                                         <TD>${customer.custMobile }</TD>
                                         <TD>
@@ -105,7 +122,7 @@
                                         </TD>
                                     </TR>
 
-                                </c:forEach>
+                                </c:forEach>--%>
 
                                 </TBODY>
                             </TABLE>

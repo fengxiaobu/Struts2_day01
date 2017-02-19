@@ -4,8 +4,11 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
     <constant name="struts.action.extension" value="do,action"/>
+
     <constant name="struts.i18n.encoding" value="utf-8"/>
     <package name="demo1" extends="struts-default" namespace="/">
+
+
         <action name="customer_*" class="com.itcast.action.CustomerAction" method="{1}">
             <result name="list">/jsp/customer/list.jsp</result>
             <result name="add" type="redirectAction">customer_findAll.action</result>
